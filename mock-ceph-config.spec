@@ -1,7 +1,7 @@
 Summary: Ceph mock configs for CentOS Storage SIG
 Name: mock-ceph-config
 Version: 1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: MIT
 URL: https://wiki.centos.org/SpecialInterestGroup/Storage/Ceph
 Source0: LICENSE
@@ -34,5 +34,11 @@ install -p -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/mock/
 %config(noreplace) %{_sysconfdir}/mock/*
 
 %changelog
+* Fri Jan 11 2019 Ken Dreyer <kdreyer@redhat.com> - 1.0-2
+- drop the "sclo" repository
+- use HTTPS for buildlogs.centos.org
+- use releasever and basearch variables
+- add aarch64 and ppc64le configurations
+
 * Tue Jan  8 2019 Ken Dreyer <kdreyer@redhat.com> - 1.0-1
 - Initial version.
