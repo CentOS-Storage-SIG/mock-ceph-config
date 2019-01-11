@@ -6,6 +6,8 @@ License: MIT
 URL: https://wiki.centos.org/SpecialInterestGroup/Storage/Ceph
 Source0: LICENSE
 Source1: storage7-ceph-nautilus-el7-x86_64.cfg
+Source2: storage7-ceph-nautilus-el7-aarch64.cfg
+Source3: storage7-ceph-nautilus-el7-ppc64le.cfg
 
 BuildArch: noarch
 
@@ -24,6 +26,8 @@ install -p -m 0644 %{SOURCE0} .
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/mock/
 install -p -m 0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/mock/
+install -p -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/mock/
+install -p -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/mock/
 
 %files
 %license LICENSE
