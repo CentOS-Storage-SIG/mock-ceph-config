@@ -1,13 +1,16 @@
 Summary: Ceph mock configs for CentOS Storage SIG
 Name: mock-ceph-config
 Version: 1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: MIT
 URL: https://wiki.centos.org/SpecialInterestGroup/Storage/Ceph
 Source0: LICENSE
-Source1: storage7-ceph-nautilus-el7-x86_64.cfg
-Source2: storage7-ceph-nautilus-el7-aarch64.cfg
-Source3: storage7-ceph-nautilus-el7-ppc64le.cfg
+Source1: storage7-ceph-luminous-el7-x86_64.cfg
+Source2: storage7-ceph-luminous-el7-aarch64.cfg
+Source3: storage7-ceph-luminous-el7-ppc64le.cfg
+Source4: storage7-ceph-nautilus-el7-x86_64.cfg
+Source5: storage7-ceph-nautilus-el7-aarch64.cfg
+Source6: storage7-ceph-nautilus-el7-ppc64le.cfg
 
 BuildArch: noarch
 
@@ -28,12 +31,18 @@ mkdir -p %{buildroot}%{_sysconfdir}/mock/
 install -p -m 0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/mock/
 install -p -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/mock/
 install -p -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/mock/
+install -p -m 0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/mock/
+install -p -m 0644 %{SOURCE5} %{buildroot}%{_sysconfdir}/mock/
+install -p -m 0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/mock/
 
 %files
 %license LICENSE
 %config(noreplace) %{_sysconfdir}/mock/*
 
 %changelog
+* Tue Jan 22 2019 Ken Dreyer <kdreyer@redhat.com> - 1.0-3
+- add luminous configurations
+
 * Fri Jan 11 2019 Ken Dreyer <kdreyer@redhat.com> - 1.0-2
 - drop the "sclo" repository
 - use HTTPS for buildlogs.centos.org
