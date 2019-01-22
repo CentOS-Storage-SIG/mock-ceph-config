@@ -30,7 +30,9 @@ $(SRPM):
 
 build: $(SRPM)
 	# XXX: remove hard-coded "7" here:
-	cbs build storage7-ceph-nautilus-$(DISTRO) $(SRPM) && \
+	cbs build storage7-ceph-luminous-$(DISTRO) $(SRPM) && \
+	cbs tag-build storage7-ceph-luminous-testing $(NVR) && \
+	cbs tag-build storage7-ceph-nautilus-candidate $(NVR) && \
 	cbs tag-build storage7-ceph-nautilus-testing $(NVR)
 
 .PHONY: all build srpm
