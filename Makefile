@@ -31,8 +31,8 @@ $(SRPM):
 build: $(SRPM)
 	ifeq ($(DISTRO),el8)
 		# XXX: remove hard-coded "8" here:
-		cbs build storage8-ceph-luminous-$(DISTRO) $(SRPM) && \
-		cbs tag-build storage8-ceph-luminous-testing $(NVR)
+		cbs build storage8-ceph-nautilus-$(DISTRO) $(SRPM) && \
+		cbs tag-build storage8-ceph-nautilus-testing $(NVR)
 	else
 		# XXX: remove hard-coded "7" here:
 		cbs build storage7-ceph-luminous-$(DISTRO) $(SRPM) && \
