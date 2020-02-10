@@ -29,10 +29,16 @@ $(SRPM):
 		$(NAME).spec
 
 build: $(SRPM)
-	# XXX: remove hard-coded "7" here:
-	cbs build storage7-ceph-luminous-$(DISTRO) $(SRPM) && \
-	cbs tag-build storage7-ceph-luminous-testing $(NVR) && \
-	cbs tag-build storage7-ceph-nautilus-candidate $(NVR) && \
-	cbs tag-build storage7-ceph-nautilus-testing $(NVR)
+	ifeq ($(DISTRO),el8)
+		# XXX: remove hard-coded "8" here:
+		cbs build storage8-ceph-luminous-$(DISTRO) $(SRPM) && \
+		cbs tag-build storage8-ceph-luminous-testing $(NVR)
+	else
+		# XXX: remove hard-coded "7" here:
+		cbs build storage7-ceph-luminous-$(DISTRO) $(SRPM) && \
+		cbs tag-build storage7-ceph-luminous-testing $(NVR) && \
+		cbs tag-build storage7-ceph-nautilus-candidate $(NVR) && \
+		cbs tag-build storage7-ceph-nautilus-testing $(NVR)
+	endif
 
 .PHONY: all build srpm

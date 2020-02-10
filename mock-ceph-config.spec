@@ -1,7 +1,7 @@
 Summary: Ceph mock configs for CentOS Storage SIG
 Name: mock-ceph-config
 Version: 1.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: MIT
 URL: https://wiki.centos.org/SpecialInterestGroup/Storage/Ceph
 Source0: LICENSE
@@ -11,6 +11,9 @@ Source3: storage7-ceph-luminous-el7-ppc64le.cfg
 Source4: storage7-ceph-nautilus-el7-x86_64.cfg
 Source5: storage7-ceph-nautilus-el7-aarch64.cfg
 Source6: storage7-ceph-nautilus-el7-ppc64le.cfg
+Source7: storage8-ceph-nautilus-el8-x86_64.cfg
+Source8: storage8-ceph-nautilus-el8-aarch64.cfg
+Source9: storage8-ceph-nautilus-el8-ppc64le.cfg
 
 BuildArch: noarch
 
@@ -34,12 +37,18 @@ install -p -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/mock/
 install -p -m 0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/mock/
 install -p -m 0644 %{SOURCE5} %{buildroot}%{_sysconfdir}/mock/
 install -p -m 0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/mock/
+install -p -m 0644 %{SOURCE7} %{buildroot}%{_sysconfdir}/mock/
+install -p -m 0644 %{SOURCE8} %{buildroot}%{_sysconfdir}/mock/
+install -p -m 0644 %{SOURCE9} %{buildroot}%{_sysconfdir}/mock/
 
 %files
 %license LICENSE
 %config(noreplace) %{_sysconfdir}/mock/*
 
 %changelog
+* Mon Feb 10 2020 Giulio Fidente <gfidente@redhat.com> - 1.0-4
+- add nautilus storage8 configurations
+
 * Tue Jan 22 2019 Ken Dreyer <kdreyer@redhat.com> - 1.0-3
 - add luminous configurations
 
